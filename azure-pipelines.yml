@@ -14,15 +14,9 @@ variables:
 
 steps:
  - task: Docker@2
-   displayName: Build an image
    inputs:
-     repository: $(imageName)
-     command: build
-     Dockerfile: app/Dockerfile
-
- - task: Docker@2
-   inputs:
-    containerRegistry: 'SampleConnectionDocker'
-    repository: $(imageName)
-    command: 'buildAndPush'
-    Dockerfile: app/Dockerfile
+     containerRegistry: 'SampleConnectionDocker'
+     repository: '$(imageName)'
+     command: 'buildAndPush'
+     Dockerfile: 'app/Dockerfile'
+     buildContext: '$(Build.Repository.LocalPath)'
