@@ -16,5 +16,6 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'SampleConnectionDocker'
+    repository: 'javascriptdockerrepository'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
